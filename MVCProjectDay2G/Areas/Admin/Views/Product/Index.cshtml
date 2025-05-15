@@ -1,0 +1,38 @@
+﻿@using MVCProjectDay2G.ViewModels.Products
+@model List<ProductListVM>
+<table class="table">
+    <a class="btn btn-success" asp-action="Create">Create</a>
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Count</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Title</td>
+                <td>@item.Category</td>
+                <td>@item.Count</td>
+                <td>@item.Rating</td>
+              
+
+                <td>
+                    <a class="btn btn-primary" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
